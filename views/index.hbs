@@ -1,3 +1,11 @@
-<h1>
-  index
-</h1>
+{{#if shortURL}}
+<p>Success! Please use this link:</p>
+<p>{{shortURL}}</p>
+{{else}}
+<form action="/" method="POST">
+  <div class="input-group">
+    <input class="form-control" type="text" placeholder="Input URL here" name="originalURL">
+    <button class="btn btn-success" type="submit">Shorten</button>
+  </div>
+</form>
+{{/if}}
