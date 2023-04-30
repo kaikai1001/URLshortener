@@ -32,7 +32,16 @@ app.post('/', (req, res) => {
 })
 
 //導至原網址
-
+app.get('/:url', (req, res) => {
+  URL.findOne({ shortURL: req.params.url })
+    .then(data => {
+      if (!data) {
+        return res.render('error')
+      }
+      res.redirect(data.originalURL)
+    })
+    .catch(error => console.error(error))
+})
 
 app.listen(3000, (req, res) => {
   console.log('App is running on http://localhost:3000')
