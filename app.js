@@ -21,10 +21,9 @@ app.get('/', (req, res) => {
 
 //產生短網址路由
 app.post('/', (req, res) => {
-  if (!req.body.originalURL) return res.redirect('/')
   const shortURL = generateURL()
   URL.findOne({ originalURL: req.body.originalURL })
-    .then(data => data ? data : URL.create({ originalURL: req.body.originalURL, shortURL }))
+    .then(data => data ? data : URL.create({ originalURL: req.body.originalURL, shortURL }))//輸入相同網址時，產生一樣的縮址
     .then((data) => {
       res.render('index', { shortURL: data.shortURL })
     })

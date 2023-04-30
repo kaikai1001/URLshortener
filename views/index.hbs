@@ -1,10 +1,12 @@
 {{#if shortURL}}
 <p>Success! Please use this link:</p>
-<p>{{shortURL}}</p>
+<p>http://localhost:3000/{{shortURL}}</p>
+<a href="/">回首頁</a>
 {{else}}
 <form action="/" method="POST">
   <div class="input-group">
-    <input class="form-control" type="text" placeholder="Input URL here" name="originalURL">
+    <input class="form-control" type="text" placeholder="Input URL here" name="originalURL" required> 
+    {{!-- 若使用者沒有輸入內容，就按下了送出鈕，需要防止表單送出並提示使用者 --}}
     <button class="btn btn-success" type="submit">Shorten</button>
   </div>
 </form>
