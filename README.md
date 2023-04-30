@@ -2,7 +2,6 @@
 ## Features
 * 輸入網址轉換成短網址
 * 在瀏覽器輸入轉換後的短網址可回到原本網址
-* 
 # How to use
 1. 先安裝好Node.js 和 npm
 2. 將所有檔案clone至本機
