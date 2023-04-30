@@ -25,8 +25,8 @@ app.post('/', (req, res) => {
   const shortURL = generateURL()
   URL.findOne({ originalURL: req.body.originalURL })
     .then(data => data ? data : URL.create({ originalURL: req.body.originalURL, shortURL }))
-    .then(() => {
-      res.render('index', { shortURL })
+    .then((data) => {
+      res.render('index', { shortURL: data.shortURL })
     })
     .catch(error => console.error(error))
 })
